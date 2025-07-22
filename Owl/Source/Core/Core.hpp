@@ -1,3 +1,5 @@
+#pragma once
+
 #ifdef OWL_PLATFORM_WIN32
 
   #ifdef OWL_BUILD_LIBRARY

@@ -2,6 +2,8 @@ cmake_minimum_required (VERSION 3.10...3.15)
 
 project (Owl)
 
+add_subdirectory ("Vendor/spdlog-01.15.03")
+
 add_library (Owl SHARED
   "Include/Owl/Engine.hpp"
 
@@ -10,7 +12,14 @@ add_library (Owl SHARED
   
   "Source/Core/Core.hpp"
   "Source/Core/EntryPoint.hpp"
+  "Source/Core/Init.cpp"
+  "Source/Core/Init.hpp"
+
+  "Source/Log/Log.cpp"
+  "Source/Log/Log.hpp"
 )
+
+target_link_libraries (Owl PUBLIC spdlog::spdlog)
 
 if (WIN32)
   target_compile_definitions (Owl PUBLIC OWL_PLATFORM_WIN32)

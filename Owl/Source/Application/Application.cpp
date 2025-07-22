@@ -1,7 +1,8 @@
+#include "../Log/Log.hpp"
 #include "Application.hpp"
-#include <iostream>
 
 void Owl::Application::Run()
 {
-  std::cout << "Welcome to Owl Engine!\n";
+  OWL_LOG_ENGINE_INFO("Test!");
+  OWL_LOG_CLIENT_INFO("Test!");
 }
