@@ -18,3 +18,5 @@
   #error [OWL] : "Platform not supported!"
 
 #endif
+
+#define OWL_BIT_FLAGS(RIGHT_INDENT) ((Owl::Uint32)1 << RIGHT_INDENT)

@@ -14,6 +14,18 @@ add_library (Owl SHARED
   "Source/Core/EntryPoint.hpp"
   "Source/Core/Init.cpp"
   "Source/Core/Init.hpp"
+  "Source/Core/Types.hpp"
+
+  "Source/Event/Event.cpp"
+  "Source/Event/Event.hpp"
+  "Source/Event/EventApplication.cpp"
+  "Source/Event/EventApplication.hpp"
+  "Source/Event/EventKeyboard.cpp"
+  "Source/Event/EventKeyboard.hpp"
+  "Source/Event/EventMouse.cpp"
+  "Source/Event/EventMouse.hpp"
+  "Source/Event/EventWindow.cpp"
+  "Source/Event/EventWindow.hpp"
 
   "Source/Log/Log.cpp"
   "Source/Log/Log.hpp"

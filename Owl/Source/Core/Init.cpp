@@ -1,10 +1,7 @@
 #include "../Log/Log.hpp"
 #include "Init.hpp"
 
-namespace Owl
+void Owl::Setup()
 {
-  void Setup()
-  {
-    Log::Setup(OWL_LOG_LEVEL_TRACE);
-  }
+  Log::Setup(OWL_LOG_LEVEL_TRACE);
 }
