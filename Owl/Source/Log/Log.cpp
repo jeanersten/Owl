@@ -1,7 +1,7 @@
+#include "../Core/CorePCH.hpp"               // IWYU pragma: keep
 #include "Log.hpp"
 #include <spdlog/spdlog.h>
 #include <spdlog/sinks/stdout_color_sinks.h>
-#include <memory>
 
 std::shared_ptr<spdlog::sinks::stderr_color_sink_mt> Owl::Log::s_stderr_console_sink { nullptr };
 std::shared_ptr<spdlog::logger> Owl::Log::s_engine_logger { nullptr };

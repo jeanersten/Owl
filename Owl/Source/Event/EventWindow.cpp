@@ -1,7 +1,6 @@
+#include "../Core/CorePCH.hpp" // IWYU pragma: keep
 #include "../Core/Types.hpp"
 #include "EventWindow.hpp"
-#include <sstream>
-#include <string>
 
 Owl::EventWindowMoved::EventWindowMoved(Float32 x, Float32 y)
   : Event()
@@ -16,7 +15,7 @@ Owl::EventType Owl::EventWindowMoved::GetEventType() const
 
 Owl::EventCategory Owl::EventWindowMoved::GetCategoryFlags() const
 {
-  return EventCategory::WINDOW | EventCategory::APPLICATION;
+  return (EventCategory::Window | EventCategory::Application);
 }
 
 const Owl::Char* Owl::EventWindowMoved::GetName() const
@@ -46,7 +45,7 @@ Owl::EventType Owl::EventWindowResized::GetEventType() const
 
 Owl::EventCategory Owl::EventWindowResized::GetCategoryFlags() const
 {
-  return EventCategory::WINDOW | EventCategory::APPLICATION;
+  return (EventCategory::Window | EventCategory::Application);
 }
 
 const Owl::Char* Owl::EventWindowResized::GetName() const
@@ -74,7 +73,7 @@ Owl::EventType Owl::EventWindowGainedFocus::GetEventType() const
 
 Owl::EventCategory Owl::EventWindowGainedFocus::GetCategoryFlags() const
 {
-  return EventCategory::WINDOW | EventCategory::APPLICATION;
+  return (EventCategory::Window | EventCategory::Application);
 }
 
 const Owl::Char* Owl::EventWindowGainedFocus::GetName() const
@@ -102,7 +101,7 @@ Owl::EventType Owl::EventWindowLostFocus::GetEventType() const
 
 Owl::EventCategory Owl::EventWindowLostFocus::GetCategoryFlags() const
 {
-  return EventCategory::WINDOW | EventCategory::APPLICATION;
+  return (EventCategory::Window | EventCategory::Application);
 }
 
 const Owl::Char* Owl::EventWindowLostFocus::GetName() const
@@ -130,7 +129,7 @@ Owl::EventType Owl::EventWindowClosed::GetEventType() const
 
 Owl::EventCategory Owl::EventWindowClosed::GetCategoryFlags() const
 {
-  return EventCategory::WINDOW | EventCategory::APPLICATION;
+  return (EventCategory::Window | EventCategory::Application);
 }
 
 const Owl::Char* Owl::EventWindowClosed::GetName() const

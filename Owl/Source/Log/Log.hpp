@@ -30,16 +30,55 @@ namespace Owl
 #define OWL_LOG_LEVEL_ERROR    spdlog::level::err
 #define OWL_LOG_LEVEL_CRITICAL spdlog::level::critical
 
-#define OWL_LOG_ENGINE_TRACE(...)    Owl::Log::GetEngineLogger()->trace(__VA_ARGS__)
-#define OWL_LOG_ENGINE_DEBUG(...)    Owl::Log::GetEngineLogger()->debug(__VA_ARGS__)
-#define OWL_LOG_ENGINE_INFO(...)     Owl::Log::GetEngineLogger()->info(__VA_ARGS__)
-#define OWL_LOG_ENGINE_WARN(...)     Owl::Log::GetEngineLogger()->warn(__VA_ARGS__)
-#define OWL_LOG_ENGINE_ERROR(...)    Owl::Log::GetEngineLogger()->error(__VA_ARGS__)
-#define OWL_LOG_ENGINE_CRITICAL(...) Owl::Log::GetEngineLogger()->critical(__VA_ARGS__)
+#ifdef OWL_PLATFORM_WIN32
 
-#define OWL_LOG_CLIENT_TRACE(...)    Owl::Log::GetClientLogger()->trace(__VA_ARGS__)
-#define OWL_LOG_CLIENT_DEBUG(...)    Owl::Log::GetClientLogger()->debug(__VA_ARGS__)
-#define OWL_LOG_CLIENT_INFO(...)     Owl::Log::GetClientLogger()->info(__VA_ARGS__)
-#define OWL_LOG_CLIENT_WARN(...)     Owl::Log::GetClientLogger()->warn(__VA_ARGS__)
-#define OWL_LOG_CLIENT_ERROR(...)    Owl::Log::GetClientLogger()->error(__VA_ARGS__)
-#define OWL_LOG_CLIENT_CRITICAL(...) Owl::Log::GetClientLogger()->critical(__VA_ARGS__)
+  #ifdef OWL_ENABLE_ASSERT
+
+    #define OWL_ASSERT_ENGINE(RET_VAL, ...) { if(!(RET_VAL)) { OWL_LOG_ENGINE_ERROR("Assertion failed: {0} ({1}:{2})", __VA_ARGS__, __FILE__, __LINE__); __debugbreak(); } }
+    #define OWL_ASSERT_CLIENT(RET_VAL, ...) { if(!(RET_VAL)) { OWL_LOG_CLIENT_ERROR("Assertion failed: {0} ({1}:{2})", __VA_ARGS__, __FILE__, __LINE__); __debugbreak(); } }
+
+  #else
+
+    #define OWL_ASSERT_ENGINE(RET_VAL, ...)
+    #define OWL_ASSERT_CLIENT(RET_VAL, ...)
+
+  #endif
+
+  #define OWL_LOG_ENGINE_TRACE(...)    Owl::Log::GetEngineLogger()->trace(__VA_ARGS__)
+  #define OWL_LOG_ENGINE_DEBUG(...)    Owl::Log::GetEngineLogger()->debug(__VA_ARGS__)
+  #define OWL_LOG_ENGINE_INFO(...)     Owl::Log::GetEngineLogger()->info(__VA_ARGS__)
+  #define OWL_LOG_ENGINE_WARN(...)     Owl::Log::GetEngineLogger()->warn(__VA_ARGS__)
+  #define OWL_LOG_ENGINE_ERROR(...)    Owl::Log::GetEngineLogger()->error(__VA_ARGS__)
+  #define OWL_LOG_ENGINE_CRITICAL(...) Owl::Log::GetEngineLogger()->critical(__VA_ARGS__)
+
+  #define OWL_LOG_CLIENT_TRACE(...)    Owl::Log::GetClientLogger()->trace(__VA_ARGS__)
+  #define OWL_LOG_CLIENT_DEBUG(...)    Owl::Log::GetClientLogger()->debug(__VA_ARGS__)
+  #define OWL_LOG_CLIENT_INFO(...)     Owl::Log::GetClientLogger()->info(__VA_ARGS__)
+  #define OWL_LOG_CLIENT_WARN(...)     Owl::Log::GetClientLogger()->warn(__VA_ARGS__)
+  #define OWL_LOG_CLIENT_ERROR(...)    Owl::Log::GetClientLogger()->error(__VA_ARGS__)
+  #define OWL_LOG_CLIENT_CRITICAL(...) Owl::Log::GetClientLogger()->critical(__VA_ARGS__)
+
+#else
+
+  #ifdef OWL_ENABLE_ASSERT
+
+    #define OWL_ASSERT_ENGINE(RET_VAL, ...)
+    #define OWL_ASSERT_CLIENT(RET_VAL, ...)
+
+  #endif
+
+  #define OWL_LOG_ENGINE_TRACE(...)
+  #define OWL_LOG_ENGINE_DEBUG(...)
+  #define OWL_LOG_ENGINE_INFO(...)
+  #define OWL_LOG_ENGINE_WARN(...)
+  #define OWL_LOG_ENGINE_ERROR(...)
+  #define OWL_LOG_ENGINE_CRITICAL(...)
+
+  #define OWL_LOG_CLIENT_TRACE(...)
+  #define OWL_LOG_CLIENT_DEBUG(...)
+  #define OWL_LOG_CLIENT_INFO(...)
+  #define OWL_LOG_CLIENT_WARN(...)
+  #define OWL_LOG_CLIENT_ERROR(...)
+  #define OWL_LOG_CLIENT_CRITICAL(...)
+
+#endif

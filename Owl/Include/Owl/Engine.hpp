@@ -11,3 +11,4 @@
 #include "../../Source/Event/EventMouse.hpp"        // IWYU pragma: export
 #include "../../Source/Event/EventWindow.hpp"       // IWYU pragma: export
 #include "../../Source/Log/Log.hpp"                 // IWYU pragma: export
+#include "../../Source/Window/Window.hpp"           // IWYU pragma: export

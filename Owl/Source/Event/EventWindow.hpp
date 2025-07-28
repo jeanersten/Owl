@@ -11,7 +11,7 @@ namespace Owl
 
     inline Float32          GetX() const { return m_x; }
     inline Float32          GetY() const { return m_y; }
-    inline static EventType GetStaticType() { return EventType::WINDOW_MOVED; }
+    inline static EventType GetStaticType() { return EventType::WindowMoved; }
     EventType               GetEventType() const override final;
     EventCategory           GetCategoryFlags() const override final;
     const Char*             GetName() const override final;
@@ -27,11 +27,11 @@ namespace Owl
   {
   public:
     EventWindowResized(Uint32 width, Uint32 heigth);
-    ~EventWindowResized() = default;
+    ~EventWindowResized() override = default;
 
     inline Uint32           GetWidth() const { return m_width; }
     inline Uint32           GetHeight() const { return m_height; }
-    inline static EventType GetStaticType() { return EventType::WINDOW_RESIZED; }
+    inline static EventType GetStaticType() { return EventType::WindowResized; }
     EventType               GetEventType() const override final;
     EventCategory           GetCategoryFlags() const override final;
     const Char*             GetName() const override final;
@@ -49,7 +49,7 @@ namespace Owl
     EventWindowGainedFocus();
     ~EventWindowGainedFocus() override = default;
 
-    inline static EventType GetStaticType() { return EventType::WINDOW_GAINED_FOCUS; }
+    inline static EventType GetStaticType() { return EventType::WindowGainedFocus; }
     EventType               GetEventType() const override final;
     EventCategory           GetCategoryFlags() const override final;
     const Char*             GetName() const override final;
@@ -63,7 +63,7 @@ namespace Owl
     EventWindowLostFocus();
     ~EventWindowLostFocus() override = default;
 
-    inline static EventType GetStaticType() { return EventType::WINDOW_LOST_FOCUS; }
+    inline static EventType GetStaticType() { return EventType::WindowLostFocus; }
     EventType               GetEventType() const override final;
     EventCategory           GetCategoryFlags() const override final;
     const Char*             GetName() const override final;
@@ -77,7 +77,7 @@ namespace Owl
     EventWindowClosed();
     ~EventWindowClosed() override = default;
 
-    inline static EventType GetStaticType() { return EventType::APPLICATION_TICK; }
+    inline static EventType GetStaticType() { return EventType::WindowClosed; }
     EventType               GetEventType() const override final;
     EventCategory           GetCategoryFlags() const override final;
     const Char*             GetName() const override final;

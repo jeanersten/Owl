@@ -1,7 +1,6 @@
+#include "../Core/CorePCH.hpp" // IWYU pragma: keep
 #include "../Core/Types.hpp"
 #include "EventKeyboard.hpp"
-#include <sstream>
-#include <string>
 
 Owl::EventKeyboardKey::EventKeyboardKey(Int32 key_code)
   : Event()
@@ -10,7 +9,7 @@ Owl::EventKeyboardKey::EventKeyboardKey(Int32 key_code)
 
 Owl::EventCategory Owl::EventKeyboardKey::GetCategoryFlags() const
 {
-  return (EventCategory::KEYBOARD | EventCategory::INPUT);
+  return (EventCategory::Keyboard | EventCategory::Input);
 }
 
 

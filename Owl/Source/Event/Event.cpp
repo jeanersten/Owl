@@ -1,3 +1,4 @@
+#include "../Core/CorePCH.hpp" // IWYU pragma: keep
 #include "Event.hpp"
 
 Owl::Event::Event()

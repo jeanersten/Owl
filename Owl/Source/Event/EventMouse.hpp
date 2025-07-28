@@ -14,7 +14,7 @@ namespace Owl
 
     inline Float32          GetX() const { return m_x; }
     inline Float32          GetY() const { return m_y; }
-    inline static EventType GetStaticType() { return EventType::MOUSE_MOVED; }
+    inline static EventType GetStaticType() { return EventType::MouseMoved; }
     EventType               GetEventType() const override final;
     EventCategory           GetCategoryFlags() const override final;
     const Char*             GetName() const override final;
@@ -34,7 +34,7 @@ namespace Owl
 
     inline Float32          GetXOffset() const { return m_x_offset; }
     inline Float32          GetYOffset() const { return m_y_offset; }
-    inline static EventType GetStaticType() { return EventType::MOUSE_SCROLLED; }
+    inline static EventType GetStaticType() { return EventType::MouseScrolled; }
     EventType               GetEventType() const override final;
     EventCategory           GetCategoryFlags() const override final;
     const Char*             GetName() const override final;
@@ -66,7 +66,7 @@ namespace Owl
     EventMouseButtonPressed(Int32 button_code);
     ~EventMouseButtonPressed() override = default;
 
-    inline static EventType GetStaticType() { return EventType::MOUSE_BUTTON_PRESSED; }
+    inline static EventType GetStaticType() { return EventType::MouseButtonPressed; }
     EventType               GetEventType() const override final;
     const Char*             GetName() const override final;
     std::string             GetString() const override;
@@ -79,7 +79,7 @@ namespace Owl
     EventMouseButtonReleased(Int32 button_code);
     ~EventMouseButtonReleased() override = default;
 
-    inline static EventType GetStaticType() { return EventType::MOUSE_BUTTON_RELEASED; }
+    inline static EventType GetStaticType() { return EventType::MouseButtonReleased; }
     EventType               GetEventType() const override final;
     const Char*             GetName() const override final;
     std::string             GetString() const override;

@@ -1,7 +1,6 @@
+#include "../Core/CorePCH.hpp"  // IWYU pragma: keep
 #include "../Core/Types.hpp"
 #include "EventApplication.hpp"
-#include <sstream>
-#include <string>
 
 Owl::EventApplicationTick::EventApplicationTick()
   : Event()
@@ -14,7 +13,7 @@ Owl::EventType Owl::EventApplicationTick::GetEventType() const
 
 Owl::EventCategory Owl::EventApplicationTick::GetCategoryFlags() const
 {
-  return EventCategory::APPLICATION;
+  return EventCategory::Application;
 }
 
 const Owl::Char* Owl::EventApplicationTick::GetName() const
@@ -42,7 +41,7 @@ Owl::EventType Owl::EventApplicationUpdate::GetEventType() const
 
 Owl::EventCategory Owl::EventApplicationUpdate::GetCategoryFlags() const
 {
-  return EventCategory::APPLICATION;
+  return EventCategory::Application;
 }
 
 const Owl::Char* Owl::EventApplicationUpdate::GetName() const
@@ -70,7 +69,7 @@ Owl::EventType Owl::EventApplicationRender::GetEventType() const
 
 Owl::EventCategory Owl::EventApplicationRender::GetCategoryFlags() const
 {
-  return EventCategory::APPLICATION;
+  return EventCategory::Application;
 }
 
 const Owl::Char* Owl::EventApplicationRender::GetName() const

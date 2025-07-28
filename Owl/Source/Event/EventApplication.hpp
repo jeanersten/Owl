@@ -12,7 +12,7 @@ namespace Owl
     EventApplicationTick();
     ~EventApplicationTick() override = default;
 
-    inline static EventType GetStaticType() { return EventType::APPLICATION_TICK; }
+    inline static EventType GetStaticType() { return EventType::ApplicationTick; }
     EventType               GetEventType() const override final;
     EventCategory           GetCategoryFlags() const override final;
     const Char*             GetName() const override final;
@@ -26,7 +26,7 @@ namespace Owl
     EventApplicationUpdate();
     ~EventApplicationUpdate() override = default;
 
-    inline static EventType GetStaticType() { return EventType::APPLICATION_UPDATE; }
+    inline static EventType GetStaticType() { return EventType::ApplicationUpdate; }
     EventType               GetEventType() const override final;
     EventCategory           GetCategoryFlags() const override final;
     const Char*             GetName() const override final;
@@ -40,7 +40,7 @@ namespace Owl
     EventApplicationRender();
     ~EventApplicationRender() override = default;
 
-    inline static EventType GetStaticType() { return EventType::APPLICATION_RENDER; }
+    inline static EventType GetStaticType() { return EventType::ApplicationRender; }
     EventType               GetEventType() const override final;
     EventCategory           GetCategoryFlags() const override final;
     const Char*             GetName() const override final;

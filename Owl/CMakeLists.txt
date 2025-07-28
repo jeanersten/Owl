@@ -1,7 +1,8 @@
-cmake_minimum_required (VERSION 3.10...3.15)
+cmake_minimum_required (VERSION 3.20...3.30)
 
 project (Owl)
 
+add_subdirectory ("Vendor/glfw-03.04.00")
 add_subdirectory ("Vendor/spdlog-01.15.03")
 
 add_library (Owl SHARED
@@ -11,6 +12,7 @@ add_library (Owl SHARED
   "Source/Application/Application.hpp"
   
   "Source/Core/Core.hpp"
+  "Source/Core/CorePCH.hpp"
   "Source/Core/EntryPoint.hpp"
   "Source/Core/Init.cpp"
   "Source/Core/Init.hpp"
@@ -29,17 +31,25 @@ add_library (Owl SHARED
 
   "Source/Log/Log.cpp"
   "Source/Log/Log.hpp"
+
+  "Source/Window/Win32/Win32Window.cpp"
+  "Source/Window/Win32/Win32Window.hpp"
+  "Source/Window/Window.cpp"
+  "Source/Window/Window.hpp"
 )
 
-target_link_libraries (Owl PUBLIC spdlog::spdlog)
+target_link_libraries (Owl PUBLIC glfw spdlog::spdlog)
 
 if (WIN32)
   target_compile_definitions (Owl PUBLIC OWL_PLATFORM_WIN32)
+  target_link_libraries (Owl PUBLIC opengl32)
 endif ()
 target_compile_definitions (Owl PUBLIC $<$<CONFIG:Debug>:OWL_CONFIG_DEBUG>)
 target_compile_definitions (Owl PUBLIC $<$<CONFIG:Release>:OWL_CONFIG_RELEASE>)
 target_compile_definitions (Owl PRIVATE OWL_BUILD_LIBRARY)
 target_include_directories (Owl PUBLIC "Include")
+
+target_precompile_headers (Owl PRIVATE "Source/Core/CorePCH.hpp")
 
 set_target_properties (Owl
   PROPERTIES

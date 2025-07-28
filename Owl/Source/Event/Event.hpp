@@ -9,22 +9,22 @@ namespace Owl
 {
   enum class EventType : Uint32
   {
-    NONE = 0,
-    APPLICATION_TICK, APPLICATION_UPDATE, APPLICATION_RENDER,
-    KEYBOARD_KEY_PRESSED, KEYBOARD_KEY_RELEASED,
-    MOUSE_MOVED, MOUSE_SCROLLED, MOUSE_BUTTON_PRESSED, MOUSE_BUTTON_RELEASED,
-    WINDOW_MOVED, WINDOW_RESIZED, WINDOW_GAINED_FOCUS, WINDOW_LOST_FOCUS, WINDOW_CLOSED
+    None = 0,
+    ApplicationTick, ApplicationUpdate, ApplicationRender,
+    KeyboardKeyPressed, KeyboardKeyReleased,
+    MouseMoved, MouseScrolled, MouseButtonPressed, MouseButtonReleased,
+    WindowMoved, WindowResized, WindowGainedFocus, WindowLostFocus, WindowClosed
   };
 
 
   enum class EventCategory : Uint32
   {
-    NONE = 0,
-    APPLICATION = OWL_BIT_FLAGS(0),
-    WINDOW      = OWL_BIT_FLAGS(1),
-    INPUT       = OWL_BIT_FLAGS(2),
-    KEYBOARD    = OWL_BIT_FLAGS(3),
-    MOUSE       = OWL_BIT_FLAGS(4),
+    None = 0,
+    Application = OWL_BIT_FLAGS(0),
+    Window      = OWL_BIT_FLAGS(1),
+    Input       = OWL_BIT_FLAGS(2),
+    Keyboard    = OWL_BIT_FLAGS(3),
+    Mouse       = OWL_BIT_FLAGS(4),
   };
 
   inline EventCategory operator|(EventCategory lhs, EventCategory rhs) { return static_cast<EventCategory>(static_cast<Uint32>(lhs) | static_cast<Uint32>(rhs)); }

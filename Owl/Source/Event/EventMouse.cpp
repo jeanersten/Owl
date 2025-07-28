@@ -1,7 +1,6 @@
+#include "../Core/CorePCH.hpp" // IWYU pragma: keep
 #include "../Core/Types.hpp"
 #include "EventMouse.hpp"
-#include <sstream>
-#include <string>
 
 Owl::EventMouseMoved::EventMouseMoved(Float32 x, Float32 y)
   : Event()
@@ -16,7 +15,7 @@ Owl::EventType Owl::EventMouseMoved::GetEventType() const
 
 Owl::EventCategory Owl::EventMouseMoved::GetCategoryFlags() const
 {
-  return (EventCategory::MOUSE | EventCategory::INPUT);
+  return (EventCategory::Mouse | EventCategory::Input);
 }
 
 const Owl::Char* Owl::EventMouseMoved::GetName() const
@@ -46,7 +45,7 @@ Owl::EventType Owl::EventMouseScrolled::GetEventType() const
 
 Owl::EventCategory Owl::EventMouseScrolled::GetCategoryFlags() const
 {
-  return (EventCategory::MOUSE | EventCategory::INPUT);
+  return (EventCategory::Mouse | EventCategory::Input);
 }
 
 const Owl::Char* Owl::EventMouseScrolled::GetName() const
@@ -70,7 +69,7 @@ Owl::EventMouseButton::EventMouseButton(Int32 button_code)
 
 Owl::EventCategory Owl::EventMouseButton::GetCategoryFlags() const
 {
-  return (EventCategory::MOUSE | EventCategory::INPUT);
+  return (EventCategory::Mouse | EventCategory::Input);
 }
 
 

@@ -1,6 +1,6 @@
 #include <Owl/Engine.hpp>
 
-OWL_CALL_MAIN(0);
+OWL_CALL_MAIN(0)
 
 class Sandbox : public Owl::Application
 {
